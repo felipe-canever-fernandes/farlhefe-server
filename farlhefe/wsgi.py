@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "farlhefe.settings")
-
 from django.core.wsgi import get_wsgi_application
 
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "farlhefe.settings")
 application = get_wsgi_application()
