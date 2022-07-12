@@ -2,9 +2,9 @@ from django.urls import path, include
 
 from django.contrib import admin
 
-admin.autodiscover()
+from . import views
 
-import farlhefe.views
+admin.autodiscover()
 
 # To add a new path, first import the app:
 # import blog
@@ -15,6 +15,6 @@ import farlhefe.views
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", farlhefe.views.index, name="index"),
+    path("", views.index, name="index"),
     path("admin/", admin.site.urls),
 ]
