@@ -6,6 +6,10 @@ class Meal(models.Model):
 	quantity = models.PositiveSmallIntegerField("Quantity (g)")
 
 
+	@property
+	def duration_in_seconds(self) -> int:
+		return self.duration // 1000
+
+
 	def __str__(self) -> str:
-		duration_in_seconds = self.duration // 1000
-		return f"{self.quantity} g eaten in {duration_in_seconds} s"
+		return f"{self.quantity} g eaten in {self.duration_in_seconds} s"
