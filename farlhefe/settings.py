@@ -116,4 +116,9 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 
+
+MQTT_BROKER_HOST = "mqtt.eclipseprojects.io"
+MQTT_CLIENT_ID = "farlhefe-server"
+
+
 django_heroku.settings(locals())
