@@ -1,6 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Meal
 
 
 def index(request):
-	del request
-	return HttpResponse("Hello, Farlhefe!")
+	return render(request, "farlhefe/index.html", {
+		"meals": Meal.objects.all()
+	})

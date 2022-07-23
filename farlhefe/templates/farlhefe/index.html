@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Farlhefe</title>
+</head>
+<body>
+	<h1>Farlhefe</h1>
+
+	<h2>Meals</h2>
+
+	{% if meals %}
+	<ul>
+		{% for meal in meals %}
+		<li>{{ meal }}</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p>There have been no meals.</p>
+	{% endif %}
+</body>
+</html>
