@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Meal(models.Model):
+	date_created = models.DateTimeField("Date created", auto_now_add=True)
 	duration = models.PositiveIntegerField("Duration (ms)")
 	quantity = models.PositiveSmallIntegerField("Quantity (g)")
 
