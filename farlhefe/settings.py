@@ -119,6 +119,7 @@ STATIC_URL = "/static/"
 
 MQTT_BROKER_HOST = "mqtt.eclipseprojects.io"
 MQTT_CLIENT_ID = "farlhefe-server"
+MQTT_MEAL_TOPIC = "farlhefe-meal"
 
 
 django_heroku.settings(locals())

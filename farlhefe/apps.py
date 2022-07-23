@@ -19,6 +19,7 @@ class FarlhefeConfig(AppConfig):
         mqtt_client.connect(settings.MQTT_BROKER_HOST)
 
         mqtt_client.on_connect = mqtt.on_connect
+        mqtt_client.on_message = mqtt.on_meal
 
         mqtt_client.loop_start()
 
