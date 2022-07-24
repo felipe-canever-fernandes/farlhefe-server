@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Farlhefe</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'farlhefe/style.css' %}">
 </head>
 <body>
 	<h1>Farlhefe</h1>
@@ -12,11 +15,20 @@
 	<h2>Meals</h2>
 
 	{% if meals %}
-	<ul>
+	<table>
+		<tr>
+			<th>Date</th>
+			<th>Duration (s)</th>
+			<th>Quantity (g)</th>
+		</tr>
 		{% for meal in meals %}
-		<li>{{ meal }}</li>
+		<tr>
+			<td>{{ meal.date }}</td>
+			<td>{{ meal.duration_in_seconds }}</td>
+			<td>{{ meal.quantity }}</td>
+		</tr>
 		{% endfor %}
-	</ul>
+	</table>
 	{% else %}
 	<p>There have been no meals.</p>
 	{% endif %}
