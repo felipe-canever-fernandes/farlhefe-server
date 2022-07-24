@@ -1,36 +1,152 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Farlhefe</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'farlhefe/style.css' %}">
-</head>
-<body>
-	<h1>Farlhefe</h1>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FALHERFE</title>
 
-	<h2>Meals</h2>
+    <!-- Icones -->
+    <link rel="stylesheet" href="{% static 'farlhefe/assets/fonts/style.css' %}" />
+    <link rel="icon" href="{% static 'farlhefe/assets/fotos/favicon-16x16.png' %}" />
 
-	{% if meals %}
-	<table>
-		<tr>
-			<th>Date</th>
-			<th>Duration (s)</th>
-			<th>Quantity (g)</th>
-		</tr>
-		{% for meal in meals %}
-		<tr>
-			<td>{{ meal.date }}</td>
-			<td>{{ meal.duration_in_seconds }}</td>
-			<td>{{ meal.quantity }}</td>
-		</tr>
-		{% endfor %}
-	</table>
-	{% else %}
-	<p>There have been no meals.</p>
-	{% endif %}
-</body>
+    <!-- SWIPER -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="{% static 'farlhefe/style.css' %}" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#"
+          >FALHERFE<span> - Alimentador para pets</span>.</a
+        >
+        <!-- Menu -->
+        <div class="menu">
+          <ul class="grid">
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+          </ul>
+        </div>
+        <!-- /Menu -->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SERVICES -->
+      <section class="section" id="home">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Falherfe</h2>
+            <p class="subtitle">
+              Cansado de ter que ficar longe de casa e deixar seus amiguinhos em
+              casa com cuidados de terceiros? O <strong>Falherfe</strong> traz a
+              solução em monitoramento para a alimentação de pets.
+            </p>
+          </header>
+          {% if meals %}
+          <div class="cards grid">
+            {% for meal in meals %}
+            <div class="card">
+              <h3 class="title">{{ meal.date }}</h3>
+              <h3 class="title">{{ meal.quantity }} g</h3>
+              <h3 class="title">{{ meal.duration_in_seconds }} s</h3>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p>There have been no meals.</p>
+          {% endif %}
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- ABOUT -->
+      <section class="section-2" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="{% static 'farlhefe/assets/fotos/pets.png' %}"
+              alt="Cachorro e gato deitado ao lado de um alimentador"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Sobre o Falherfe</h2>
+            <p>
+              Vai viajar, ou ficar um bom tempo fora de casa e não sabe com quem
+              deixar seus pets. É com base nessas dificuldades que nasce o
+              Falherfe, o alimentador para pets. Suas funcio nalidades permitem
+              os donos de pets possas monitorar a atividade de seus amiguinhos e
+              saber se estão se alimentando bem.
+            </p>
+            <br />
+            <p>
+              Com a evolução da tecnologia, o ramo da Internet das Coisas (IoT)
+              vem crescendo de forma excpcional. E foi usando esse conceito que
+              o Falherfe tomou vida. Um alimentador com um microcontrolador em
+              seu interior que permite a conexão com a nuvem, dessa forma,
+              possibilitando que os dados coletados sobre a alimentação dos pets
+              sejam enviados e salvo a um servidor.
+            </p>
+            <br />
+            <p>
+              E para melhorar a visualização dessa coleta de dados, o
+              equipamento conta com uma dashboard web bem simples.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home"
+            >FALHERFE<span> - Alimentador para pets</span>.</a
+          >
+          <p>©2022 FALHERFE - Trabalho de Redes sem Fio.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank"
+            ><i class="icon-instagram"></i></a
+          ><a href="https://facebook.com" target="_blank"
+            ><i class="icon-facebook"></i></a
+          ><a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i> </a>
+
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- SCROLL REVeal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- MAIN -->
+    <script src="{% static 'farlhefe/main.js' %}"></script>
+  </body>
 </html>
