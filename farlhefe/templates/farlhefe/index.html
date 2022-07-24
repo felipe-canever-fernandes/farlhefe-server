@@ -65,7 +65,8 @@
           <div class="cards grid">
             {% for meal in meals %}
             <div class="card">
-              <h3 class="title">{{ meal.date }}</h3>
+              <h3 class="title">{{ meal.date|date:"d/m/y" }}</h3>
+              <h3 class="title">{{ meal.date|date:"G:i" }}</h3>
               <h3 class="title">{{ meal.quantity }} g</h3>
               <h3 class="title">{{ meal.duration_in_seconds }} s</h3>
             </div>
